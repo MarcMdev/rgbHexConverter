@@ -115,7 +115,7 @@ function hexRgbConverter() {
     //Update the RGB value to the screen
     rgbInput.value = rgbCode;
     //updates BackGround Color according to the input
-    screen.style.backgroundColor = `#${rgbCode}`;
+    screen.style.backgroundColor = `rgb(${rgbCode})`;
 
   }else {rgbInput.value = '';};
 
