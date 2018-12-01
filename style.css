@@ -1,0 +1,29 @@
+html,
+body{
+	max-width: 100%;
+	max-height: 100%;
+	padding: 0;
+}
+
+#wrapper {
+	position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgb(75, 72, 72);
+}
+
+
+#color-form p input {
+	background: transparent;
+	outline: none;
+	border-color: transparent;
+	border-bottom-color: red;
+	font-size: 3rem;
+
+}
