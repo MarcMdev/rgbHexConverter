@@ -2,6 +2,8 @@
 const rgbInput = document.querySelector('#rgb');
 const hexInput = document.querySelector('#hex');
 const screen = document.querySelector('#wrapper');
+const inputNodes = document.querySelectorAll('.input');
+const clipboardBtn = document.querySelectorAll('.copy-icon')
 // chart with the corresponding letters for hex numbers above 9
 const hexChar = {
   a: 10,
@@ -114,6 +116,8 @@ function hexRgbConverter() {
     console.log(rgbCode)
     //Update the RGB value to the screen
     rgbInput.value = rgbCode;
+    //updates own value to uppercase
+    hexInput.value = hexStr.toUpperCase();
     //updates BackGround Color according to the input
     screen.style.backgroundColor = `rgb(${rgbCode})`;
 
@@ -122,6 +126,22 @@ function hexRgbConverter() {
 }
 
 //Event Listeners
-rgbInput.addEventListener('keyup', rgbHexConverter)
-hexInput.addEventListener('keyup', hexRgbConverter)
+rgbInput.addEventListener('keyup', rgbHexConverter);
+hexInput.addEventListener('keyup', hexRgbConverter);
+
+//input placeholder clear on focus
+inputNodes.forEach(input => {
+  input.addEventListener('focus', () => input.setAttribute('placeholder', ''));
+});
+
+//Copy code to clip board
+clipboardBtn[0].addEventListener('click', function() {
+  rgbInput.select();
+  document.execCommand('copy');
+});
+clipboardBtn[1].addEventListener('click', function() {
+  hexInput.select();
+  document.execCommand('copy');
+});
+
 /******************************/
